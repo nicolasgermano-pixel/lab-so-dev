@@ -1,0 +1,81 @@
+# Atividade 1 — O sistema de arquivos como mapa do SO
+# Preencha este arquivo durante a atividade.
+# ─────────────────────────────────────────────────────
+
+# PARTE A — Exploração da hierarquia
+# Para cada diretório, registre o comando executado e uma linha
+# explicando a função do diretório com suas próprias palavras.
+
+/proc  
+  # Atividade 1 — O sistema de arquivos como mapa do SO
+# Preencha este arquivo durante a atividade.
+# ─────────────────────────────────────────────────────
+
+# PARTE A — Exploração da hierarquia
+# Para cada diretório, registre o comando executado e uma linha
+# explicando a função do diretório com suas próprias palavras.
+
+/proc  
+ 1    3   8          devices      iomem     mounts        swaps        vmstat
+10   32  9          device-tree  ioports   net           sys          zoneinfo
+100  4   buddyinfo  diskstats    irq       pagetypeinfo  sysvipc
+11   42  bus        driver       kallsyms  partitions    thread-self
+12   47  cgroups    execdomains  kmsg      sched_debug   timer_list
+13   5   cmdline    fb           loadavg   self          tty
+14   6   consoles   filesystems  locks     slabinfo      uptime
+15   7   cpuinfo    fs           meminfo   softirqs      version
+2    78  crypto     interrupts   misc      stat          vmallocinfo
+
+/proc/cpuinfo
+  hart    : 0
+isa     : rv64acdfimsu
+mmu     : sv48
+
+/proc/meminfo
+  
+
+/proc/uptime
+  ls /bin | wc -l
+
+/bin
+
+  
+/dev
+  
+
+/etc
+  
+
+
+# PARTE B — Questão de reflexão
+# A apresentação mostrou que o supervisor controlava o acesso a I/O
+# e que rotinas de dispositivo traduziam comandos.
+# Em qual diretório do Linux você reconhece essa função?
+
+Resposta:
+
+/proc/cpuinfo
+  
+
+/proc/meminfo
+  
+
+/proc/uptime
+ 
+
+/bin
+
+  
+/dev
+  
+
+/etc
+  
+
+
+# PARTE B — Questão de reflexão
+# A apresentação mostrou que o supervisor controlava o acesso a I/O
+# e que rotinas de dispositivo traduziam comandos.
+# Em qual diretório do Linux você reconhece essa função?
+
+Resposta:
