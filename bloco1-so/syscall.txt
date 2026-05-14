@@ -8,26 +8,35 @@
 # strace echo "ola" 2>&1 | grep write
 
 Saída filtrada:
+write(1, "ola\n", 4) = 4
 
 # Anote:
 #   Argumento 1 (file descriptor):
 #   O que está sendo escrito:
+
 #   Valor de retorno:
 
 fd:
-conteúdo:
-retorno:
+conteúdo:strace -o strace.txt echo "ola"
+retorno:ola
 
 
 # PARTE B — Programa C com write() direto
 
 # Cole aqui o código de syscall_direto.c que você escreveu:
+#include <unistd.h>
+ 
+int main (){
+        const char msg[] = "Modo usuario -> kernel via write ()\n";
+        write(1, msg, sizeof(msg) - 1);
+        return 0;
+}
 
 [código-fonte]
 
 
 # Cole aqui a linha write(...) da saída de strace ./syscall_direto:
-
+write(1, "Modo usuario -> kernel via write ()\n", 36) = 36
 [saída do strace]
 
 
@@ -38,10 +47,11 @@ retorno:
 #    instruções privilegiadas diretamente? (mínimo 2 frases)
 
 Resposta 1:
-
+Um programa de usuário consegue realizar I/O fazendo um pedido ao sistema operacional através de uma chamada de sistema (syscall), como a função write(). Em vez de tentar acessar o hardware diretamente (o que geraria um erro de permissão), o programa delega a tarefa ao Kernel. O Kernel, que opera em modo privilegiado (Modo Kernel), assume o controle, executa as instruções físicas de I/O de forma segura e, ao terminar, devolve o resultado e o controle de volta para o programa de usuário.
 
 # 2. Compare write(fd, buffer, tamanho) com o "programa de canal"
 #    da apresentação: o que os dois têm em comum em termos de
 #    responsabilidades?
 
 Resposta 2:
+O elemento dos sistemas modernos que ganha o papel dos antigos é o Controlador de DMA. Assim como os canais do passado, o controlador de DMA é um hardware especializado, e a sua função é realizar a transferência direta de dados entre os dispositivos de I/O (como discos ou placas de rede) e a memória principal. Ele faz isso sozinho, liberando a CPU principal do trabalho pesado para que ela possa continuar processando outras tarefas sem interrupções.
